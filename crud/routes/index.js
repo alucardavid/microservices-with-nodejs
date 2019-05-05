@@ -3,7 +3,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  global.db.findAll((err, docs) => {
+    if (err) return console.log(err)
+    res.render('index', {docs})
+  })
 });
 
 router.get('/new', (req, res, next) => {
