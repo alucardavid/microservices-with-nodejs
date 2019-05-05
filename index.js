@@ -1,9 +1,16 @@
 const https = require('https')
+const data = JSON.stringify({
+    exemplo: 'valor'
+})
 const options = {
-    hostname: 'www.google.com.br',
+    hostname: 'requestbin.fullcontact.com',
     port: 443,
-    path: '/about/',
-    method: 'GET'
+    path: '/wc5prmwc',
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Content-Lenght': data.length
+    }
 }
 
 const req = https.request(options, res => {
