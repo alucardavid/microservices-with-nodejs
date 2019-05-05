@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRUD de clientes</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Preencha os dados abaixo para salvar o cliente</p>
+    <form action="<%= action %>" method="POST">
+        <p><label for="nome">Nome: <input type="text" name="nome" id="nome"></label></p>
+        <p><label for="idade">Idade: <input type="number" name="idade" id="idade"></label></p>
+        <p>
+            <label for="">
+                UF:
+                <select name="uf" id="uf">
+                    <option value="rs">RS</option>
+                    <option value="sc">SC</option>
+                    <option value="pr">PR</option>
+                </select>
+            </label>
+        </p>
+        <p><a href="/">Cancelar</a> | <input type="submit" value="Salvar"></p>
+    </form>
+  </body>
+</html>
