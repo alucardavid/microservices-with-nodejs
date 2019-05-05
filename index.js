@@ -1,18 +1,20 @@
-var seneca = require('seneca')()
+const https = require('https')
+const options = {
+    hostname: 'www.google.com.br',
+    port: 443,
+    path: '/about/',
+    method: 'GET'
+}
 
-seneca.add({role: 'math', cmd: 'sum'}, function(msg, respond) {
-    var sum = msg.left + msg.right;
-    respond(null, {aswer: sum});
-});
+const req = https.request(options, res => {
+    console.log(`statusCode: ${res.statusCode}`);
+    res.on('data', d => {
+        process.stdout.write(d)
+    })
+})
 
-seneca.add({role: 'math', cmd: 'product'}, function(msg, respond) {
-    var product = msg.left * msg.right;
-    respond(null, {aswer: product});
-});
+req.on('error', error => {
+    console.log(error);
+})
 
-seneca.act({role: 'math', cmd: 'sum', left: 1, right: 2}, function(err, data) {
-    if(err) return console.error(err);
-    console.log(data.aswer);
-});
-
-// seneca.act({role: 'math', cmd: 'product', left: 3, right: 4}, console.log);
+req.end()
