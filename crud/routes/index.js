@@ -43,4 +43,12 @@ router.post('/edit/:id', (req, res) => {
   })
 })
 
+router.get('/delete/:id', (req, res) => {
+  var id = req.params.id
+  global.db.deleteOne(id, (err, result) => {
+    if (err) return console.log(err)
+    res.redirect('/?delete=true')
+  })
+})
+
 module.exports = router;

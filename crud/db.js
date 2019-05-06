@@ -21,4 +21,8 @@ function update(id, customer, cb) {
     global.conn.collection('customers').update({_id: new ObjectId(id)}, customer, cb)
 }
 
-module.exports = { findAll, insert, findOne, update }
+function deleteOne(id, cb) {
+    global.conn.collection('customers').deleteOne({_id: new ObjectId(id)}, cb)
+}
+
+module.exports = { findAll, insert, findOne, update, deleteOne }
