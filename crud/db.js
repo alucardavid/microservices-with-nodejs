@@ -8,4 +8,8 @@ function findAll(cb) {
     global.conn.collection('customers').find({}).toArray(cb)
 }
 
-module.exports = { findAll }
+function insert(customer, cb) {
+    global.conn.collection('customers').insertOne(customer, cb)
+}
+
+module.exports = { findAll, insert }
