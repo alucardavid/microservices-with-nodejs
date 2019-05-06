@@ -9,15 +9,16 @@
     <h1><%= title %></h1>
     <p>Preencha os dados abaixo para salvar o cliente</p>
     <form action="<%= action %>" method="POST">
-        <p><label for="nome">Nome: <input type="text" name="nome" id="nome"></label></p>
-        <p><label for="idade">Idade: <input type="number" name="idade" id="idade"></label></p>
+        <p><label for="nome">Nome: <input type="text" name="nome" id="nome" value="<%= doc.nome %>"></label></p>
+        <p><label for="idade">Idade: <input type="number" name="idade" id="idade" value="<%= doc.idade %>"></label></p>
         <p>
             <label for="">
                 UF:
                 <select name="uf" id="uf">
-                    <option value="RS">RS</option>
-                    <option value="SC">SC</option>
-                    <option value="PR">PR</option>
+                    <% const s = "selected" %>
+                    <option <% if(doc.uf === "RS") {%><%= s %><% }%>>RS</option>
+                    <option <% if(doc.uf === "SC") {%><%= s %><% }%>>SC</option>
+                    <option <% if(doc.uf === "PR") {%><%= s %><% }%>>PR</option>
                 </select>
             </label>
         </p>

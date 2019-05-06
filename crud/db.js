@@ -1,4 +1,5 @@
 const mongoCliente = require('mongodb').MongoClient
+const ObjectId = require('mongodb').ObjectID
 
 mongoCliente.connect('mongodb://localhost:27017/workshop')
     .then(conn => global.conn = conn.db('workshop'))
@@ -12,4 +13,12 @@ function insert(customer, cb) {
     global.conn.collection('customers').insertOne(customer, cb)
 }
 
-module.exports = { findAll, insert }
+function findOne(id, cb) {
+    global.conn.collection('customers').findOne(new ObjectId(id), cb)
+}
+
+function update(id, customer, cb) {
+    global.conn.collection('customers').update({_id: new ObjectId(id)}, customer, cb)
+}
+
+module.exports = { findAll, insert, findOne, update }
