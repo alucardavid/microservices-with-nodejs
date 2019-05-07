@@ -1,3 +1,7 @@
-/node_modules
-/webapi/node_modules
-/exemplotdd/node_modules
+# projeto principal
+node_modules
+.env
+.env.example
+.env.local
+.env.staging
+data
