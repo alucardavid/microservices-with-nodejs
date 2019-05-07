@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node index.test | tap-spec"
+    "test": "node index.test | tap-spec",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
