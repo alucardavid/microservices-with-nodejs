@@ -1,7 +1,7 @@
 # projeto principal
 node_modules
-.env
-.env.example
-.env.local
-.env.staging
+#.env
+#.env.example
+#.env.local
+#.env.staging
 data

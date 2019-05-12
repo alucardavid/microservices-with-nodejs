@@ -1,5 +1,9 @@
 module.exports = (app, repository) => {
     
+    app.get('/', (req, res, next) => {
+        res.json({msg: 'Bem vindo ao Catalogo de Cinema'})
+    })
+
     app.get('/cities', (req, res, next) => {
         repository.getAllCities((err, cities) => {
             if(err) return next(err);

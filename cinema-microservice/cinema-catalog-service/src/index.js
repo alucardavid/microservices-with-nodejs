@@ -4,5 +4,5 @@ const server = require("./server/server");
 const repository = require("./repository/repository");
 
 server.start(cinemaCatalog, repository, (err, app) => { 
-    console.log("just started");
+    console.log(`Server is running in port ${process.env.PORT}`);
 });

@@ -1,4 +1,9 @@
 module.exports = (app, rep) => {
+
+    app.get('/', (req, res, next) => {
+        res.json({msg: 'Bem vindo ao serviço de filmes'})
+    })
+
     app.get('/movies', (req, res, next) => {
         rep.getAllMovies((err, movies) => {
             if (err) return next(err)
